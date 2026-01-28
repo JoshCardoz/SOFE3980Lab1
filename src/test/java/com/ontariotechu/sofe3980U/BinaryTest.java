@@ -209,6 +209,4 @@ public class BinaryTest
         Binary binary3 = Binary.multiply(binary1, binary2);
         assertEquals("1010", binary3.getValue());
     }
-
-
 }

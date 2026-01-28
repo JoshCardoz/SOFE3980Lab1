@@ -149,17 +149,13 @@ public class Binary
 		Binary result = new Binary("0");
 
 		for (int i = 0; i < binary2.number.length(); i++) {
-			char currentDigit = binary2.number.charAt(binary2.number.length() - 1 - i);
-
-			if (currentDigit == '1') {
-				Binary partialProduct = new Binary(binary1.number);
-				for (int j = 0; j < i; j++) {
-					partialProduct = Binary.add(partialProduct, partialProduct);
-				}
-				result = Binary.add(result, partialProduct);
+			char bit = binary2.number.charAt(binary2.number.length() - 1 - i);
+			if (bit == '1') {
+				Binary shifted = new Binary(binary1.number + "0".repeat(i));
+				result = Binary.add(result, shifted);
 			}
 		}
-
 		return result;
 	}
+
 }	
